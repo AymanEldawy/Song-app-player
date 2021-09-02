@@ -1,0 +1,43 @@
+extends MasterPage
+block title 
+  title  Song App
+block content
+  .player
+    .player-left
+      i#changeMode.fa.fa-paint-brush
+      figure.player-img
+        video(id="myVideo" src="media/INNA- More Than Friends.mp4" poster="media/sound-speaker-neon-light-beach-260nw-1654046242.jpg" )
+      .player-content
+        .player-info 
+          h2#songName title song 
+          h4#artistName artist name 
+        .player-controls
+          .progress 
+            span#currentTime #[span#trackMinutes 00]:#[span#trackSeconds 00]
+            input(type="range" id="rangeSong" min="0" value="0" max="100" step="1")
+            span#duration #[span#totalMinute 00]:#[span#totalSecond 00]
+          .controls
+            .volume
+              i(class="fa fa-volume-up" id="volumeMute")
+              i#mute.fa.fa-times
+              span#volumeProgress #[span#volumeProgressValue ]
+              input(type="range" id="volume" min="0" value="100" max="100" step="5")
+              span#volumeRecent 100%
+            .control
+              i(class="fa fa-angle-double-left" id="prev")
+              i(class="fa fa-play toggle-play" id="togglePlay")
+              i(class="fa fa-angle-double-right" id="next")
+            .actions  
+              i(class="fa fa-heart" id="favorite")
+              i(class="fa fa-history" id="loop")
+              i(class="fa fa-list-ol" id="togglePlaylist")
+    .player-right   
+      form.form-search
+        input(type="search", name="" placeholder="Search in songs")
+        i(class="fa fa-search")
+      .filters
+        button(data-filter="all") All #[span#allCount 55]
+        button(data-filter="last") Last listening #[span#lastListenCount 5]
+        button(data-filter="favorite") Favorite #[span#favoriteCount 25]
+        button(data-filter="views") Most listening #[span#viewsCount 15]
+      ul.player-playlist
