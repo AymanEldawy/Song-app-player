@@ -339,7 +339,7 @@ const createSong = (song) => {
 };
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "./media/", true);
+xhr.open("GET", "../media/", true);
 xhr.responseType = "document";
 xhr.onload = () => {
   if (xhr.status === 200) {
